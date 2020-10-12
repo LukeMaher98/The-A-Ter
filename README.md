@@ -1,2 +1,2 @@
 # The-A-Ter
-Cinema is dead
+Cinema is dead, long live Cinema
