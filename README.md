@@ -3,4 +3,4 @@ Cinema is dead
 
 Rip Cinema
 
-OKAY PR FOR REAL THIS TIME
+Fuck this bullshit pr shit
