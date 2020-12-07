@@ -1,9 +1,9 @@
 import PySimpleGUI as sg
-import view_controller
+import ui_utils
 
 Heading = "TheAter Concessions"
 
-concessionsInfo = view_controller.view.get_view_list("databases/concessions_db.txt")
+concessionsInfo = ui_utils.get_view_list("databases/concessions_db.txt")
 
 userLayout = [[sg.Text("TheAter Concessions")], 
              [sg.Listbox(concessionsInfo, size=(100, len(concessionsInfo)), key='-List-', enable_events=True)],

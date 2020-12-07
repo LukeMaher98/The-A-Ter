@@ -1,6 +1,4 @@
-class View_Controller:
-
-    def get_view_list(self, filename):
+def get_view_list(filename):
         listData = open(filename, "r")
         lineData = listData
         list_data = []
@@ -18,5 +16,3 @@ class View_Controller:
             list_data.append(output)
         
         return list_data
-
-view = View_Controller()

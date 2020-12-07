@@ -50,7 +50,6 @@ class UI_Controller:
             self._concession_sales_ui = sg.Window(concession_sales_ui.Heading, concession_sales_ui.adminLayout,size=(600,200), finalize=True)
         self._current_ui = self._concession_sales_ui
 
-
     def get_current_ui(self):
         return self._current_ui
 
