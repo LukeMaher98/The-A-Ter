@@ -4,20 +4,22 @@ import logic_controller
 def adminEventLoop(window, event, values):
     if event == 'Logout':
         logout()
-    if event == 'Screenings':
+    if event == 'Alter Screenings':
         editMenu()
-    if event == 'My Bookings':
-        print("My Bookings")
     if event == 'Bookings Review':
         print("Bookings Screen")
-    if event == 'Sales Review':
-        print("Sales Screen")
+    if event == 'View Ticket Sales':
+        ticketSales()
+    if event == 'View Concession Sales':
+        concessionSales()
 
 def userEventLoop(window, event, values):
     if event == 'Logout':
         logout()
     if event == 'Screenings':
-        print("Screenings")
+        screenings()
+    if event == 'Concessions':
+        concessions()
     if event == 'My Bookings':
         print("My Bookings")
 
@@ -31,3 +33,27 @@ def editMenu():
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_edit_menu_ui()
     logic_controller.logic.set_edit_menu_loop()
+    
+def screenings():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_screening_ui()
+    logic_controller.logic.set_screenings_user_loop()
+    logic_controller.logic.set_auth_type("user")
+
+def concessions():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_concessions_ui()
+    logic_controller.logic.set_concessions_user_loop()
+    logic_controller.logic.set_auth_type("user")
+
+def ticketSales():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_ticket_sales_ui()
+    logic_controller.logic.set_ticket_sales_admin_loop()
+    logic_controller.logic.set_auth_type("admin")
+
+def concessionSales():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_concession_sales_ui()
+    logic_controller.logic.set_concession_sales_admin_loop()
+    logic_controller.logic.set_auth_type("admin")

@@ -27,7 +27,7 @@ def userLogin():
     logic_controller.logic.set_auth_type("user")
 
 def validateLogin(window, username, password):
-    loginData = open("login_db.txt", "r")
+    loginData = open("databases/login_db.txt", "r")
     usernames = loginData.readline().split(",")
     passwords = loginData.readline().split(",")
     authTypes = loginData.readline().split(",")
