@@ -19,15 +19,4 @@ class View_Controller:
 
         return list_data
 
-    def get_view_string(self, filename):
-        stringData = open(filename, "r")
-        lineData = stringData
-        string_data = ""
-
-        for line in lineData:
-            string_data = string_data + line + "/n"
-        
-        return string_data
-
-
 view = View_Controller()

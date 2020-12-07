@@ -12,15 +12,6 @@ def eventLoop(window, event, values):
         WriteFile(file, values['-MOVIES-'][0])
     window.refresh()
 
-def ReadFile(file):
-    out = ""
-    f = open(file, "r")
-    movies = f.readlines()
-    for m in movies:
-        out = out + m
-    f.close()
-    return out
-
 def WriteFile(file, movies):
     f = open(file, "w")  
     for m in movies:
