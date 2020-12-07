@@ -6,7 +6,6 @@ sg.theme('BluePurple')
 
 while True:
     if logic_controller.logic.get_exit() == True:
-        print("logic broke")
         break
 
     window = ui_controller.ui.get_current_ui()
