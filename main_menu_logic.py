@@ -5,7 +5,7 @@ def adminEventLoop(window, event, values):
     if event == 'Logout':
         logout()
     if event == 'Screenings':
-        print("Screenings")
+        editMenu()
     if event == 'My Bookings':
         print("My Bookings")
     if event == 'Bookings Review':
@@ -17,7 +17,7 @@ def userEventLoop(window, event, values):
     if event == 'Logout':
         logout()
     if event == 'Screenings':
-        editMenu()
+        print("Screenings")
     if event == 'My Bookings':
         print("My Bookings")
 

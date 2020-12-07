@@ -1,6 +1,9 @@
 import PySimpleGUI as sg
+import view_controller
 
-layout = [[sg.Input(key='-MOVIES-')],
-          [sg.Button('Save'), sg.Button('Exit')]]
+movieInfo = view_controller.view.get_view_list("movie_db.txt")
+
+layout = [[sg.Listbox(movieInfo, key='-MOVIES-')],
+          [sg.Button('Save'), sg.Button('Main Menu')]]
 
 heading = "Edit Screenings"
