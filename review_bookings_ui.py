@@ -3,7 +3,7 @@ import ui_controller
 import logic_controller
 import ui_utils
 
-Heading = "TheAter My Bookings"
+Heading = "TheAter Bookings Review"
 
 def showLayout():
     bookingsInfo = ui_utils.read_bookings_review()
