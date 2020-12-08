@@ -6,7 +6,7 @@ def ticketSalesEventLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == '-List-':
-        sg.popup('{}'.format(values['-List-'][0]))
+        sg.popup('{} tickets'.format(values['-List-'][0]))
 
 
 def backToMenu():

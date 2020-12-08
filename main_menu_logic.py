@@ -7,7 +7,7 @@ def adminEventLoop(window, event, values):
     if event == 'Alter Screenings':
         print("Alter Screenings")
     if event == 'Bookings Review':
-        print("Bookings Screen")
+        print("Bookings Review")
     if event == 'View Ticket Sales':
         ticketSales()
     if event == 'View Concession Sales':
@@ -21,7 +21,7 @@ def userEventLoop(window, event, values):
     if event == 'Concessions':
         concessions()
     if event == 'My Bookings':
-        print("My Bookings")
+        myBookings()
 
 def logout():
     ui_controller.ui.get_current_ui().Hide()
@@ -39,6 +39,12 @@ def concessions():
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_concessions_ui()
     logic_controller.logic.set_concessions_user_loop()
+    logic_controller.logic.set_auth_type("user")
+
+def myBookings():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_redeem_booking_ui()
+    logic_controller.logic.set_redeem_booking_user_loop()
     logic_controller.logic.set_auth_type("user")
 
 def ticketSales():

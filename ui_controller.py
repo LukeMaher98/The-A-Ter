@@ -5,6 +5,9 @@ import screenings_ui
 import concessions_ui
 import ticket_sales_ui
 import concession_sales_ui
+import book_ticket_ui
+import purchase_ticket_ui
+import redeem_booking_ui
 
 class UI_Controller:
     def __init__(self): 
@@ -15,10 +18,17 @@ class UI_Controller:
         self._concessions_ui = None
         self._ticket_sales_ui = None
         self._concession_sales_ui = None
+        self._book_ticket_ui = None
+        self._purchase_ticket_ui = None
+        self._redeem_booking_ui = None
         self._current_ui = self._entry_ui  
+        self._current_user = None
 
     def open_entry_ui(self):
         self._current_ui = self._entry_ui
+
+    def set_current_user(self, username):
+        self._current_user = username
 
     def open_main_menu_admin_ui(self):
         if self._main_menu_admin_ui == None:
@@ -32,7 +42,7 @@ class UI_Controller:
     
     def open_screening_ui(self):
         if self._screenings_ui == None:
-            self._screenings_ui = sg.Window(screenings_ui.Heading, screenings_ui.userLayout,size=(600,200), finalize=True)
+            self._screenings_ui = sg.Window(screenings_ui.Heading, screenings_ui.userLayout,size=(600,230), finalize=True)
         self._current_ui = self._screenings_ui
 
     def open_concessions_ui(self):
@@ -49,6 +59,21 @@ class UI_Controller:
         if self._concession_sales_ui == None:
             self._concession_sales_ui = sg.Window(concession_sales_ui.Heading, concession_sales_ui.adminLayout,size=(600,200), finalize=True)
         self._current_ui = self._concession_sales_ui
+
+    def open_book_ticket_ui(self, movie):
+        # no if here as each movie has a different layout and it will need to be overwritten
+        self._book_ticket_ui = sg.Window(book_ticket_ui.Heading, book_ticket_ui.showLayout(movie), size=(600,200), finalize=True)
+        self._current_ui = self._book_ticket_ui
+
+    def open_purchase_ticket_ui(self, movie):
+        # no if here as each movie has a different layout and it will need to be overwritten
+        self._purchase_ticket_ui = sg.Window(purchase_ticket_ui.Heading, purchase_ticket_ui.showLayout(movie), size=(600,200), finalize=True)
+        self._current_ui = self._purchase_ticket_ui
+    
+    def open_redeem_booking_ui(self):
+        # no if here as each movie has a different layout and it will need to be overwritten
+        self._redeem_booking_ui = sg.Window(redeem_booking_ui.Heading, redeem_booking_ui.showLayout(), size=(600,200), finalize=True)
+        self._current_ui = self._redeem_booking_ui
 
     def get_current_ui(self):
         return self._current_ui

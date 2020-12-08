@@ -14,15 +14,19 @@ def eventLoop(window, event, values):
     window['-USERNAME-'].update("")
     window['-PASSWORD-'].update("")
 
-def adminLogin():
+def adminLogin(username):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_main_menu_admin_ui()
+    ui_controller.ui.set_current_user(username)
+    logic_controller.logic.set_current_user(username)
     logic_controller.logic.set_main_menu_admin_loop()
     logic_controller.logic.set_auth_type("admin")
 
-def userLogin():
+def userLogin(username):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_main_menu_user_ui()
+    ui_controller.ui.set_current_user(username)
+    logic_controller.logic.set_current_user(username)
     logic_controller.logic.set_main_menu_user_loop()
     logic_controller.logic.set_auth_type("user")
 
@@ -34,9 +38,9 @@ def validateLogin(window, username, password):
     if username in usernames:
         if password == passwords[usernames.index(username)]:
             if authTypes[usernames.index(username)] == "admin":
-                adminLogin()
+                adminLogin(username)
             else:
-                userLogin()
+                userLogin(username)
         else:
             window['-OUTPUT-'].update("Entered password is invalid")
     else:

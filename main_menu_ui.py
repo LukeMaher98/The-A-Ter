@@ -8,7 +8,6 @@ userLayout = [[sg.Text("Welcome to TheAter")],
 
 adminLayout = [[sg.Text("Welcome to TheAter")],
           [sg.Button('Alter Screenings')],
-          [sg.Button('My Bookings')],
           [sg.Button('Bookings Review')],
           [sg.Button('View Ticket Sales')],
           [sg.Button('View Concession Sales')],
