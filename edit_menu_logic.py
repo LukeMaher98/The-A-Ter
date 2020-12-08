@@ -7,28 +7,32 @@ def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
 
     if event == 'Main Menu':
+        window['-MOVIES-'].update(values=ui_utils.get_view_list(file))
         backToMenu()
     if event == 'Save':
         ui_utils.save_to_file(file, window['-MOVIES-'].get_list_values())
         sg.popup("Saved Screenings")
     if event == 'Add Screening':
         text = sg.popup_get_text("Add screening in format 'MovieTitle, Time1, Time2,..., TimeN")
-        v = window['-MOVIES-'].get_list_values()
-        v.append(convertToDisplayForm(text))
-        window['-MOVIES-'].update(values=v)
-        print(window['-MOVIES-'].get_list_values())
+        if text != None:
+            v = window['-MOVIES-'].get_list_values()
+            v.append(convertToDisplayForm(text))
+            window['-MOVIES-'].update(values=v)
     if event == 'Delete Selected':
-        print("DeleteSelected")
-        d = values['-MOVIES-'][0]
-        v = deleteSelected(d, window['-MOVIES-'].get_list_values())
-        window['-MOVIES-'].update(values=v)
+        try:
+            d = values['-MOVIES-'][0]
+            v = deleteSelected(d, window['-MOVIES-'].get_list_values())
+            window['-MOVIES-'].update(values=v)
+        except:
+            sg.popup("Select Screening to be deleted first!") 
     if event == '-MOVIES-':
         text = sg.popup_get_text("Edit screening in format 'MovieTitle, Time1, Time2,..., TimeN",
             default_text=convertToEditForm(values['-MOVIES-'][0]))
-        i = window['-MOVIES-'].get_indexes()
-        v = window['-MOVIES-'].get_list_values()
-        v[i[0]] = convertToDisplayForm(text)
-        window['-MOVIES-'].update(values=v)
+        if text != None:
+            i = window['-MOVIES-'].get_indexes()
+            v = window['-MOVIES-'].get_list_values()
+            v[i[0]] = convertToDisplayForm(text)
+            window['-MOVIES-'].update(values=v)
 
 def backToMenu():
     ui_controller.ui.get_current_ui().Hide()
