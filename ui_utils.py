@@ -49,3 +49,16 @@ def read_bookings(user):
                 bookings.append(string[1] + ": " + string[2])
     
     return bookings
+
+def read_bookings_review():
+    dict = {}
+    bookings = []
+    with open("databases/bookings_db.txt", "r") as db:
+        for line in db:
+            movie = line.split(",")[1]
+            if movie not in dict:
+                dict[movie] = 1
+            else:
+                dict[movie] = dict[movie] + 1
+    
+    return dict.items()

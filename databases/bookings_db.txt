@@ -1,2 +1,7 @@
 l,Lennart; The Professional,13:00,
-l,Lennart; The Professional,21:00,
+l,O Sam - Where Art Thou?,19:45,
+l,How to Train Your James,21:00,
+l,The Bi-Curious Case of Carl Frohburg,18:00,
+l,O Sam - Where Art Thou?,19:45,
+l,O Sam - Where Art Thou?,19:45,
+l,O Sam - Where Art Thou?,15:45,

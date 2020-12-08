@@ -7,12 +7,15 @@ def redeemBookingLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == 'Redeem Booking':
-        title, time = ui_utils.title_times_split(values['-List-'][0], False)
-        user = ui_controller.ui._current_user
-        sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
-        removeBooking(user, title, time[0])
-        movie = values['-List-'][0]
-        purchaseTicket(movie)
+        try:
+            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            user = ui_controller.ui._current_user
+            sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
+            removeBooking(user, title, time[0])
+            movie = values['-List-'][0]
+            purchaseTicket(movie)
+        except:
+            sg.popup("Select a booking first")
 
 def backToMenu():
     ui_controller.ui.get_current_ui().Hide()

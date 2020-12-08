@@ -1,3 +1,4 @@
+from review_bookings_logic import reviewBookingLoop
 import ui_controller
 import logic_controller
 
@@ -7,7 +8,7 @@ def adminEventLoop(window, event, values):
     if event == 'Alter Screenings':
         print("Alter Screenings")
     if event == 'Bookings Review':
-        print("Bookings Review")
+        reviewBookings()
     if event == 'View Ticket Sales':
         ticketSales()
     if event == 'View Concession Sales':
@@ -57,4 +58,10 @@ def concessionSales():
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_concession_sales_ui()
     logic_controller.logic.set_concession_sales_admin_loop()
+    logic_controller.logic.set_auth_type("admin")
+
+def reviewBookings():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_review_bookings_loop()
+    logic_controller.logic.set_review_booking_loop()
     logic_controller.logic.set_auth_type("admin")

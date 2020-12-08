@@ -8,7 +8,7 @@ def concessionsEventLoop(window, event, values):
     if event == 'Purchase Concessions':
         print("Pruchase Concessions!")
     if event == '-List-':
-        sg.popup('{}'.format(values['-List-'][0]))
+        sg.popup('{} euro'.format(values['-List-'][0]))
 
 
 def backToMenu():

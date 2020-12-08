@@ -9,11 +9,14 @@ def bookTicketLoop(window, event, values):
     if event == 'Back To Screenings':
         screenings()
     if event == 'Book Ticket':
-        title, time = ui_utils.title_times_split(values['-List-'][0], False)
-        user = ui_controller.ui._current_user
-        sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
-        addBooking(user, title, time[0])
-        backToMenu()
+        try:
+            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            user = ui_controller.ui._current_user
+            sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
+            addBooking(user, title, time[0])
+            backToMenu()
+        except:
+            sg.popup("Select a booking first")
 
 def backToMenu():
     ui_controller.ui.get_current_ui().Hide()

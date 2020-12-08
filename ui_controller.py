@@ -8,6 +8,7 @@ import concession_sales_ui
 import book_ticket_ui
 import purchase_ticket_ui
 import redeem_booking_ui
+import review_bookings_ui
 
 class UI_Controller:
     def __init__(self): 
@@ -21,6 +22,7 @@ class UI_Controller:
         self._book_ticket_ui = None
         self._purchase_ticket_ui = None
         self._redeem_booking_ui = None
+        self._review_booking_ui = None
         self._current_ui = self._entry_ui  
         self._current_user = None
 
@@ -74,6 +76,11 @@ class UI_Controller:
         # no if here as each movie has a different layout and it will need to be overwritten
         self._redeem_booking_ui = sg.Window(redeem_booking_ui.Heading, redeem_booking_ui.showLayout(), size=(600,200), finalize=True)
         self._current_ui = self._redeem_booking_ui
+
+    def open_review_bookings_loop(self):
+        # no if here as each movie has a different layout and it will need to be overwritten
+        self._review_booking_ui = sg.Window(review_bookings_ui.Heading, review_bookings_ui.showLayout(), size=(600,200), finalize=True)
+        self._current_ui = self._review_booking_ui
 
     def get_current_ui(self):
         return self._current_ui

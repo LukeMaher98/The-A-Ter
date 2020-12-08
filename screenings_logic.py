@@ -6,11 +6,17 @@ def screeningsEventLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == 'Book Ticket':
-        movie = values['-List-'][0]
-        bookTicket(movie)
+        try:
+            movie = values['-List-'][0]
+            bookTicket(movie)
+        except:
+            sg.popup("Select a movie first")
     if event == 'Purchase Ticket':
-        movie = values['-List-'][0]
-        purchaseTicket(movie)
+        try:
+            movie = values['-List-'][0]
+            purchaseTicket(movie)
+        except:
+            sg.popup("Select a movie first")
     if event == '-List-':
         sg.popup('{}'.format(values['-List-'][0]))
 

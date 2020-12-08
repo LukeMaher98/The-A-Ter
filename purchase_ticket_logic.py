@@ -9,10 +9,13 @@ def purchaseTicketLoop(window, event, values):
     if event == 'Back To Screenings':
         screenings()
     if event == 'Purchase Ticket':
-        title, time = ui_utils.title_times_split(values['-List-'][0], False)
-        sg.popup('Ticket purchased for: {} at {}'.format(title, time[0]))
-        addSale(title)
-        backToMenu()
+        try:
+            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            sg.popup('Ticket purchased for: {} at {}'.format(title, time[0]))
+            addSale(title)
+            backToMenu()
+        except:
+            sg.popup("Select a time first")
 
 def backToMenu():
     ui_controller.ui.get_current_ui().Hide()

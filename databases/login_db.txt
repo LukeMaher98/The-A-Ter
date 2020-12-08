@@ -1,3 +1,3 @@
-LukeMaher,l,CarlFrohburg,SamuelFoley,t,
-17223563,l,17237823,17237874,t,
-user,user,user,user,admin,
+LukeMaher,LennartMantel,CarlFrohburg,SamuelFoley,testUser,l,t,
+17223563,17207266,17237823,17237874,00000000,l,t,
+user,user,admin,user,admin,user,admin,

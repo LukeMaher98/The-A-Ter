@@ -7,6 +7,7 @@ import concession_sales_logic
 import book_ticket_logic
 import purchase_ticket_logic
 import redeem_booking_logic
+import review_bookings_logic
 
 class Logic_Controller:
     def __init__(self): 
@@ -20,6 +21,7 @@ class Logic_Controller:
         self._book_ticket_user_loop = book_ticket_logic.bookTicketLoop
         self._purchase_ticket_user_loop = purchase_ticket_logic.purchaseTicketLoop
         self._redeem_booking_user_loop = redeem_booking_logic.redeemBookingLoop
+        self._review_booking_loop = review_bookings_logic.reviewBookingLoop
         self._current_loop = self._entry_loop
         self._current_user = None
         self._auth_type = None
@@ -57,6 +59,9 @@ class Logic_Controller:
     
     def set_redeem_booking_user_loop(self):
         self._current_loop = self._redeem_booking_user_loop
+
+    def set_review_booking_loop(self):
+        self._current_loop = self._review_booking_loop
 
     def get_current_loop(self):
         return self._current_loop
