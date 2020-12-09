@@ -1,3 +1,3 @@
-00000001,LukeMaher,CarlFrohburg,LennartMantel,SamuelFoley,testUser03,
-00000001,17223563,17237823,17207266,17237874,00000002,
-user,user,user,user,user,user,
+t,l,l0,
+t,l,l0,
+admin,user,user,

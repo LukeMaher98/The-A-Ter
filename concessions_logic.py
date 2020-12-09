@@ -6,9 +6,24 @@ def concessionsEventLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == 'Purchase Concessions':
-        print(f'{"Subtotal: "}{logic_controller.logic.get_concessions_subtotal()}{"e"}')
+        sg.popup(f'{"Subtotal: "}{logic_controller.logic.get_concessions_subtotal()}{"e"}')
+        concessions = logic_controller.logic.get_concessions_basket()
+        for item in concessions:
+            title = item.split(":")[0]
+            buyConcession(title)
+        emptyBasket(window)
+        backToMenu()
     if event == '-LIST-':
-        addToConcessionsBasket(window, values['-LIST-'][0])
+        amount = sg.popup_get_text("Select Amount")
+        try:
+            amount = int(amount)
+            if amount > 0:
+                for i in range(amount):
+                    addToConcessionsBasket(window, values['-LIST-'][0])
+            else:
+                sg.popup("Select a value greater than 0")
+        except:
+            sg.popup("Select a numeric value")
     if event == '-BASKET-':
         removeFromConcessionsBasket(window, values['-BASKET-'][0])
 
@@ -41,6 +56,21 @@ def parseItemPrice(value):
     strPrice = strPrice = strPrice.replace(" ", "")
     return int(strPrice)
 
+def buyConcession(concession):
+    concessionSales = ""
+    with open("databases/concession_sales_db.txt", "r") as db:
+        for line in db:
+            string = line.split(",")
+            if concession == string[0]:
+                concessionSales += concession+","+str(int(string[1]) + 1)+",\n"
+            else:
+                concessionSales += line
 
+    db = open("databases/concession_sales_db.txt", "w")
+    db.write(concessionSales)
 
+def emptyBasket(window):
+    concessions = []
+    logic_controller.logic.set_concessions_basket(concessions)
+    window['-BASKET-'].update(logic_controller.logic.get_concessions_basket())
 
