@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import entry_ui
 import main_menu_ui
+import edit_menu_ui
 import screenings_ui
 import concessions_ui
 import ticket_sales_ui
@@ -11,6 +12,7 @@ class UI_Controller:
         self._entry_ui = sg.Window(entry_ui.heading, entry_ui.layout, finalize=True) 
         self._main_menu_admin_ui = None 
         self._main_menu_user_ui = None
+        self._edit_menu_ui = None
         self._screenings_ui = None
         self._concessions_ui = None
         self._ticket_sales_ui = None
@@ -49,6 +51,11 @@ class UI_Controller:
         if self._concession_sales_ui == None:
             self._concession_sales_ui = sg.Window(concession_sales_ui.Heading, concession_sales_ui.adminLayout,size=(600,200), finalize=True)
         self._current_ui = self._concession_sales_ui
+
+    def open_edit_menu_ui(self):
+        if self._edit_menu_ui == None:
+            self._edit_menu_ui = sg.Window(edit_menu_ui.heading, edit_menu_ui.layout, finalize=True)
+        self._current_ui = self._edit_menu_ui
 
     def get_current_ui(self):
         return self._current_ui
