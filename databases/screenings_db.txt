@@ -1,5 +1,5 @@
-The Bi-Curious Case of Carl Frohburg, 11:00, 15:00, 18:00,
-The Good - the Bad and the Luke, 12:00
-Lennart: The Professional, 13:00, 21:00
-O Sam - Where Art Thou?, 15:45, 19:45,
-How to Train Your James, 21:00
+The Bi-Curious Case of Carl Frohburg,1, 11:00, 18:00
+Lennart: The Professional,2, 13:00, 21:00
+O Sam - Where Art Thou?,3, 16:00, 19:45
+Paddy and the Chocolate Factory,4, 9:00, 11:00
+Retard,5, 12:00
