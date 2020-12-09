@@ -13,7 +13,7 @@ def get_view_list(filename):
                 else :
                     output += "  "+ element +","
                 count +=1
-            output = output.removesuffix(',')
+            output = output[0:len(output)-1]
             list_data.append(output)
         return list_data
 
