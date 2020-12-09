@@ -1,9 +1,9 @@
 import PySimpleGUI as sg
-import ui_utils
+import utils
 import listings
 Heading = "TheAter Ticket Sales"
 
-ticket_sales_info = ui_utils.get_view_list("ticket sale","databases/ticket_sales_db.txt")
+ticket_sales_info = utils.get_view_list("ticket sale","databases/ticket_sales_db.txt")
 
 ticket_sales_list = listings.list_factory.create_list("ticket sale", ticket_sales_info)
 ticket_sales_screen = ticket_sales_list.generate_list()

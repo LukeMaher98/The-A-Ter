@@ -1,17 +1,17 @@
 import PySimpleGUI as sg
 import logic_controller
 import ui_controller
-import ui_utils
 import re
+import utils
 
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
 
     if event == 'Main Menu':
-        window['-MOVIES-'].update(values=ui_utils.get_view_list("screening",file))
+        window['-MOVIES-'].update(values=utils.get_view_list("screening",file))
         backToMenu()
     if event == 'Save':
-        ui_utils.save_to_file(file, window['-MOVIES-'].get_list_values())
+        utils.save_to_file(file, window['-MOVIES-'].get_list_values())
         sg.popup("Saved Screenings")
     if event == 'Add Screening':
         text = sg.popup_get_text("Add screening in format 'MovieTitle,Time1,Time2,...,TimeN")
@@ -47,7 +47,6 @@ def backToMenu():
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_main_menu_admin_ui()
     logic_controller.logic.set_main_menu_admin_loop()
-    logic_controller.logic.set_auth_type("admin")
 
 def convertToEditForm(input):
     output = input.split(':  ')[0]

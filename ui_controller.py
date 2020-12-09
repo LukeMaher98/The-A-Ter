@@ -9,7 +9,8 @@ import concession_sales_ui
 
 class UI_Controller:
     def __init__(self): 
-        self._entry_ui = sg.Window(entry_ui.heading, entry_ui.layout, finalize=True) 
+        self._login_ui = sg.Window(entry_ui.loginHeading, entry_ui.loginLayout, finalize=True) 
+        self._signup_ui = None 
         self._main_menu_admin_ui = None 
         self._main_menu_user_ui = None
         self._edit_menu_ui = None
@@ -17,10 +18,15 @@ class UI_Controller:
         self._concessions_ui = None
         self._ticket_sales_ui = None
         self._concession_sales_ui = None
-        self._current_ui = self._entry_ui  
+        self._current_ui = self._login_ui  
 
-    def open_entry_ui(self):
-        self._current_ui = self._entry_ui
+    def open_login_ui(self):
+        self._current_ui = self._login_ui
+
+    def open_signup_ui(self):
+        if self._signup_ui == None:
+            self._signup_ui = sg.Window(entry_ui.signupHeading, entry_ui.signupLayout, finalize=True)
+        self._current_ui = self._signup_ui
 
     def open_main_menu_admin_ui(self):
         if self._main_menu_admin_ui == None:

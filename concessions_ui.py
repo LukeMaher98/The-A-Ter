@@ -1,15 +1,19 @@
 import PySimpleGUI as sg
-import ui_utils
+import logic_controller
 import listings
+import utils
 
 Heading = "TheAter Concessions"
 
-concessions_info = ui_utils.get_view_list("concessions","databases/concessions_db.txt")
+concessions_info = utils.get_view_list("concessions","databases/concessions_db.txt")
 
 concessions_list = listings.list_factory.create_list("concession",concessions_info)
 concession_screen = concessions_list.generate_list()
 
-userLayout = [[sg.Text("TheAter Concessions")], 
-             [sg.Listbox(concession_screen, size=(100, len(concession_screen)), key='-List-', enable_events=True)],
-             [sg.Button('Purchase Concessions')],
-             [sg.Button('Back To Menu')]]
+concessionsBasket = logic_controller.logic.get_concessions_basket()
+
+userLayout = [[sg.Text("TheAter Concessions")],
+              [sg.Listbox(concession_screen, size=(50, 8), key='-LIST-', enable_events=True),
+               sg.Listbox(concessionsBasket, size=(50, 8), key='-BASKET-', enable_events=True)],
+              [sg.Button('Purchase Concessions')],
+              [sg.Button('Back To Menu')]]
