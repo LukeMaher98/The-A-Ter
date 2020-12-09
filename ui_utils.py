@@ -11,8 +11,18 @@ def get_view_list(filename):
                 if count == 0 :
                     output += element + ":"
                 else :
-                    output += "  "+ element +"   "
+                    output += "  "+ element +","
                 count +=1
+            output = output.removesuffix(',')
             list_data.append(output)
-        
         return list_data
+
+def save_to_file(filename, content):
+    f = open(filename, "w")  
+    for c in content:
+        n = c.split(':  ')[0]
+        t = c.replace(n+":", "")
+        n = n + "," + t.replace("  ", "")
+        if n.endswith("\n") != True:
+            n = n + "\n"
+        f.write(n)
