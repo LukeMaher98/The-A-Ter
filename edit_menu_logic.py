@@ -8,7 +8,7 @@ def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
 
     if event == 'Main Menu':
-        window['-MOVIES-'].update(values=utils.get_view_list("screening",file))
+        window['-MOVIES-'].update(values=utils.get_view_list("movies",file))
         backToMenu()
     if event == 'Save':
         utils.save_to_file(file, window['-MOVIES-'].get_list_values())
