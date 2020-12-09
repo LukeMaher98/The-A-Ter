@@ -1,7 +1,7 @@
-Kids Combo, 1000 sold,
-Popcorn, 1 sold,
+Kids Combo, 1000 sold
+Popcorn, 1 sold
 Drink, 69 sold,
-Hot Dog, 55 sold,
-Nachos, 0 sold,
-Chicken Strips, 5 sold,
-Chocolate Bites, 100 sold,
+Hot Dog, 55 sold
+Nachos, 0 sold
+Chicken Strips, 5 sold
+Chocolate Bites, 100 sold

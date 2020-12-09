@@ -1,15 +1,15 @@
 import PySimpleGUI as sg
 import ui_utils
-from listings import ListFactory
+import listings
 
 Heading = "TheAter Screenings"
-list_factory = ListFactory()
-screeningList = list_factory.create_list("databases/screenings_db.txt")
-screeningsInfo = screeningList.get_view_list(screeningList.filename)
+screenings_info = ui_utils.get_view_list("movies","databases/screenings_db.txt")
 
-screeningsInfo = ui_utils.get_view_list("databases/screenings_db.txt")
+movie_list = listings.list_factory.create_list("movie",screenings_info)
+movie_screen = movie_list.generate_list()
+
 
 userLayout = [[sg.Text("TheAter Screenings")], 
-             [sg.Listbox(screeningsInfo, size=(100, len(screeningsInfo)), key='-List-', enable_events=True)],
+             [sg.Listbox(movie_screen, size=(100, len(movie_screen)), key='-List-', enable_events=True)],
              [sg.Button('Book or Purchase Ticket')],
              [sg.Button('Back To Menu')]]

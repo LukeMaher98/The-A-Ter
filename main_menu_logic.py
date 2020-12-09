@@ -51,7 +51,6 @@ def concessions():
             "timestamp": "2017-11-19T20:00:00.00Z",
             "concessions": True
             })
-
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_concessions_ui()
     logic_controller.logic.set_concessions_user_loop()

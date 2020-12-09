@@ -1,9 +1,14 @@
 import PySimpleGUI as sg
 import ui_utils
+import listings
 Heading = "TheAter Ticket Sales"
 
-ticketSalesInfo = ui_utils.get_view_list("databases/ticket_sales_db.txt")
+ticket_sales_info = ui_utils.get_view_list("ticket sale","databases/ticket_sales_db.txt")
+
+ticket_sales_list = listings.list_factory.create_list("ticket sale", ticket_sales_info)
+ticket_sales_screen = ticket_sales_list.generate_list()
+
 
 adminLayout = [[sg.Text("TheAter Ticket Sales")], 
-             [sg.Listbox(ticketSalesInfo, size=(100, len(ticketSalesInfo)), key='-List-', enable_events=True)],
+             [sg.Listbox(ticket_sales_screen, size=(100, len(ticket_sales_screen)), key='-List-', enable_events=True)],
              [sg.Button('Back To Menu')]]
