@@ -5,7 +5,7 @@ def get_view_list(type, filename):
         listData = open(filename, "r")
         lineData = listData
         list_data = []
-        movieListing = 0
+        entryListing = 0
         for line in lineData:
             index = 0
             length = len(line)
@@ -36,14 +36,14 @@ def get_view_list(type, filename):
                     index += 1
                 hold = hold[:-1]
                 current_entry[2].append(hold)
-                movieListing = list_objects.Movie(current_entry)
+                entryListing = list_objects.Movie(current_entry)
             if type == "concessions":
-                movieListing = list_objects.Concession(current_entry)
+                entryListing = list_objects.Concession(current_entry)
             if type == "concession sale":
-                movieListing = list_objects.ConcessionSales(current_entry)
+                entryListing = list_objects.ConcessionSales(current_entry)
             if type == "ticket sale":
-                movieListing = list_objects.TicketSales(current_entry)
-            list_data.append(movieListing)
+                entryListing = list_objects.TicketSales(current_entry)
+            list_data.append(entryListing)
         
         return list_data
 
