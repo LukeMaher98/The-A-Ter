@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import entry_ui
 import main_menu_ui
+import edit_menu_ui
 import screenings_ui
 import concessions_ui
 import ticket_sales_ui
@@ -16,6 +17,7 @@ class UI_Controller:
         self._entry_ui = sg.Window(entry_ui.heading, entry_ui.layout, finalize=True) 
         self._main_menu_admin_ui = None 
         self._main_menu_user_ui = None
+        self._edit_menu_ui = None
         self._screenings_ui = None
         self._concessions_ui = None
         self._ticket_sales_ui = None
@@ -88,6 +90,10 @@ class UI_Controller:
         # no if here as each movie has a different layout and it will need to be overwritten
         self._purchase_concessions_ui = sg.Window(purchase_concessions_ui.Heading, purchase_concessions_ui.showLayout(concession), size=(600,200), finalize=True)
         self._current_ui = self._purchase_concessions_ui
+    def open_edit_menu_ui(self):
+        if self._edit_menu_ui == None:
+            self._edit_menu_ui = sg.Window(edit_menu_ui.heading, edit_menu_ui.layout, finalize=True)
+        self._current_ui = self._edit_menu_ui
 
     def get_current_ui(self):
         return self._current_ui
