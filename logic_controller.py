@@ -13,7 +13,8 @@ import purchase_concessions_logic
 
 class Logic_Controller:
     def __init__(self): 
-        self._entry_loop = entry_logic.eventLoop 
+        self._login_loop = entry_logic.loginEventLoop 
+        self._signup_loop = entry_logic.signupEventLoop 
         self._main_menu_admin_loop = main_menu_logic.adminEventLoop 
         self._main_menu_user_loop = main_menu_logic.userEventLoop
         self._screenings_user_loop = screenings_logic.screeningsEventLoop
@@ -25,14 +26,19 @@ class Logic_Controller:
         self._purchase_concession_loop = purchase_concessions_logic.purchaseConcessionLoop
         self._redeem_booking_user_loop = redeem_booking_logic.redeemBookingLoop
         self._review_booking_loop = review_bookings_logic.reviewBookingLoop
-        self._current_loop = self._entry_loop
         self._current_user = None
+        self._current_loop = self._login_loop
+        self.concession_basket = []
+        self.concession_subtotal = 0
         self._auth_type = None
         self._exit = False
         self._edit_menu_loop = edit_menu_logic.eventLoop
 
-    def set_entry_loop(self):  
-        self._current_loop = self._entry_loop
+    def set_login_loop(self):  
+        self._current_loop = self._login_loop
+
+    def set_signup_loop(self):  
+        self._current_loop = self._signup_loop
 
     def set_current_user(self, username):
         self._current_user = username
@@ -74,6 +80,18 @@ class Logic_Controller:
 
     def get_current_loop(self):
         return self._current_loop
+
+    def set_concessions_basket(self, basket):
+        self.concession_basket = basket
+
+    def get_concessions_basket(self):
+        return self.concession_basket
+
+    def set_concessions_subtotal(self, subtotal):
+        self.concession_subtotal = subtotal
+
+    def get_concessions_subtotal(self):
+        return self.concession_subtotal
 
     def set_auth_type(self, auth_type):
         self._auth_type = auth_type

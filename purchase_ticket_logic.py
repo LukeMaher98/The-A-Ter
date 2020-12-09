@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import ui_utils
+import utils
 
 def purchaseTicketLoop(window, event, values):
     if event == 'Back To Menu':
@@ -10,7 +10,7 @@ def purchaseTicketLoop(window, event, values):
         screenings()
     if event == 'Purchase Ticket':
         try:
-            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            title, time = utils.title_times_split(values['-List-'][0], False)
             sg.popup('Ticket purchased for: {} at {}'.format(title, time[0]))
             addSale(title)
             backToMenu()

@@ -1,12 +1,12 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import ui_utils
+import utils
 
 Heading = "TheAter My Bookings"
 
 def showLayout():
-    bookingsInfo = ui_utils.read_bookings(logic_controller.logic._current_user)
+    bookingsInfo = utils.read_bookings(logic_controller.logic._current_user)
     
     return [[sg.Text("My Bookings")], 
              [sg.Listbox(bookingsInfo, size=(100, len(bookingsInfo)), key='-List-', enable_events=True)],

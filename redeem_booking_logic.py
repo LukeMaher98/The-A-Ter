@@ -1,14 +1,14 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import ui_utils
+import utils
 
 def redeemBookingLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == 'Redeem Booking':
         try:
-            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            title, time = utils.title_times_split(values['-List-'][0], False)
             user = ui_controller.ui._current_user
             sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
             removeBooking(user, title, time[0])

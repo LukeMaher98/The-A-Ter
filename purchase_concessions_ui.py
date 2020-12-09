@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import ui_utils
+import utils
 
 Heading = "TheAter Purchase Concession"
 

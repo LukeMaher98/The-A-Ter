@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import ui_utils
+import utils
 
 def bookTicketLoop(window, event, values):
     if event == 'Back To Menu':
@@ -10,7 +10,7 @@ def bookTicketLoop(window, event, values):
         screenings()
     if event == 'Book Ticket':
         try:
-            title, time = ui_utils.title_times_split(values['-List-'][0], False)
+            title, time = utils.title_times_split(values['-List-'][0], False)
             user = ui_controller.ui._current_user
             sg.popup('Ticket redeemed for: {} at {}'.format(title, time[0]))
             addBooking(user, title, time[0])
