@@ -6,7 +6,6 @@ import utils
 
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
-
     if event == 'Main Menu':
         window['-MOVIES-'].update(values=utils.get_view_list("movies",file))
         backToMenu()

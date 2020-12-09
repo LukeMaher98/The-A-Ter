@@ -10,6 +10,7 @@ movie_screen = movie_list.generate_list()
 
 
 userLayout = [[sg.Text("TheAter Screenings")], 
-             [sg.Listbox(movie_screen, size=(100, len(movie_screen)), key='-List-', enable_events=True)],
-             [sg.Button('Book or Purchase Ticket')],
+             [sg.Listbox(movie_screen, size=(100, len(movie_screen)), key='-List-', bind_return_key=True)],
+             [sg.Button('Book Ticket')],
+             [sg.Button('Purchase Ticket')],
              [sg.Button('Back To Menu')]]

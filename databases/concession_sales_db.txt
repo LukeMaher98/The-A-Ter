@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Kids Combo, 1000 sold
 Popcorn, 1 sold
 Drink, 69 sold,
@@ -5,3 +6,12 @@ Hot Dog, 55 sold
 Nachos, 0 sold
 Chicken Strips, 5 sold
 Chocolate Bites, 100 sold
+=======
+Kids Combo,1000,
+Popcorn,1,
+Drink,79,
+Hot Dog,60,
+Nachos,99,
+Chicken Strips,85,
+Chocolate Bites,110,
+>>>>>>> a102f3be7e96d6d8a386971c3a7bda9aa413b213

@@ -42,23 +42,27 @@ def signupEventLoop(window, event, values):
     window['-PASSWORD-'].update("")
     window['-CONFIRM-'].update("")
 
-def adminLogin():
+def adminLogin(username):
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
         "timestamp": "2017-11-19T20:00:00.00Z",
         "AdminLogin": True,
     })
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_main_menu_admin_ui()
+    ui_controller.ui.set_current_user(username)
+    logic_controller.logic.set_current_user(username)
     logic_controller.logic.set_main_menu_admin_loop()
     logic_controller.logic.set_auth_type("admin")
 
-def userLogin():
+def userLogin(username):
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
         "timestamp": "2017-11-19T20:00:00.00Z",
         "UserLogin": True,
     })
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_main_menu_user_ui()
+    ui_controller.ui.set_current_user(username)
+    logic_controller.logic.set_current_user(username)
     logic_controller.logic.set_main_menu_user_loop()
     logic_controller.logic.set_auth_type("user")
 
@@ -80,9 +84,9 @@ def validateLogin(window, username, password):
     if username in usernames:
         if password == passwords[usernames.index(username)]:
             if authTypes[usernames.index(username)] == "admin":
-                adminLogin()
+                adminLogin(username)
             else:
-                userLogin()
+                userLogin(username)
         else:
             window['-OUTPUT-'].update("Entered password is invalid")
             requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
