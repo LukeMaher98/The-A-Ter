@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import logic_controller
 import ui_controller
 import ui_utils
+import re
 
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
@@ -16,8 +17,12 @@ def eventLoop(window, event, values):
         text = sg.popup_get_text("Add screening in format 'MovieTitle, Time1, Time2,..., TimeN")
         if text != None:
             v = window['-MOVIES-'].get_list_values()
-            v.append(convertToDisplayForm(text))
-            window['-MOVIES-'].update(values=v)
+            m = convertToDisplayForm(text)
+            if m.endswith(":") != True:
+                v.append(m)
+                window['-MOVIES-'].update(values=v)
+            else:
+                sg.popup("Screenings must be in format 'MovieTitle, Time1, Time2,..., TimeN")
     if event == 'Delete Selected':
         try:
             d = values['-MOVIES-'][0]
@@ -31,8 +36,12 @@ def eventLoop(window, event, values):
         if text != None:
             i = window['-MOVIES-'].get_indexes()
             v = window['-MOVIES-'].get_list_values()
-            v[i[0]] = convertToDisplayForm(text)
-            window['-MOVIES-'].update(values=v)
+            m = convertToDisplayForm(text)
+            if m.endswith(":") != True:
+                v[i[0]] = m
+                window['-MOVIES-'].update(values=v)
+            else:
+                sg.popup("Screenings must be in format 'MovieTitle, Time1, Time2,..., TimeN")
 
 def backToMenu():
     ui_controller.ui.get_current_ui().Hide()
@@ -55,7 +64,8 @@ def convertToDisplayForm(input):
         if count == 0 :
             output += element + ":"
         else :
-            output += "\t"+ element +","
+            if re.match("(24:00|2[0-3]:[0-5][0-9]|[0-1][0-9]:[0-5][0-9])", element):
+                output += "\t"+ element +","
         count +=1
     output = output.removesuffix(',')
 
