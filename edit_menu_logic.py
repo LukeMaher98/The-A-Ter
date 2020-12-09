@@ -7,16 +7,6 @@ import re
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
 
-    # if event == 'Main Menu':
-    #     window['-MOVIES-'].update(values=ui_utils.get_view_list(file))
-    #     backToMenu()
-    # if event == 'Save':
-    #     ui_utils.save_to_file(file, window['-MOVIES-'].get_list_values())
-    #     sg.popup("Saved Screenings")
-    # if event == 'Add Screening':
-    #     text = sg.popup_get_text("Add screening in format 'MovieTitle, Time1, Time2,..., TimeN")
-    #     window['-MOVIES-'].update(values=utils.get_view_list(file))
-    #     backToMenu()
     if event == 'Save':
         utils.save_to_file(file, window['-MOVIES-'].get_list_values())
         sg.popup("Saved Screenings")
