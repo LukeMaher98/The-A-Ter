@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
+import requests
 
 def concessionsEventLoop(window, event, values):
     if event == 'Back To Menu':
@@ -65,6 +66,10 @@ def buyConcession(concession):
                 concessionSales += concession+","+str(int(string[1]) + 1)+",\n"
             else:
                 concessionSales += line
+
+    requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
+            "ConcessionPurchased": "Success",
+        })
 
     db = open("databases/concession_sales_db.txt", "w")
     db.write(concessionSales)
