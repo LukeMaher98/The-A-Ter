@@ -31,11 +31,10 @@ def bookTicket(movie):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_book_ticket_ui(movie)
     logic_controller.logic.set_book_ticket_user_loop()
-    logic_controller.logic.set_auth_type("user")
 
 def purchaseTicket(movie):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_purchase_ticket_ui(movie)
     logic_controller.logic.set_purchase_ticket_user_loop()
-    logic_controller.logic.set_auth_type("user")
+
 
