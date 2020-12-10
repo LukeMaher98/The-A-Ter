@@ -16,7 +16,7 @@ class MovieList(Listing):
         for file in self.filename:
             output = ""
             movie_info = file.get_movie_info()
-            output +="Screen: " +movie_info[1]
+            output +="Screen " +movie_info[1]+ " - "
             output += " "+ movie_info[0] + ":"
             i = 0
             while i < len(movie_info[2]):
@@ -35,7 +35,7 @@ class ConcessionList(Listing):
             output = ""
             concession_info = file.get_concession_info()
             output +=concession_info[0]
-            output += " "+ concession_info[1]
+            output += ":"+ concession_info[1]
             full_list.append(output)
         return full_list
 
