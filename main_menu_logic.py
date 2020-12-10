@@ -38,7 +38,6 @@ def editMenu():
     
 def screenings():
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
-            "timestamp": "2017-11-19T20:00:00.00Z",
             "screenings": True
             })
     ui_controller.ui.get_current_ui().Hide()
@@ -48,7 +47,6 @@ def screenings():
 
 def concessions():
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
-            "timestamp": "2017-11-19T20:00:00.00Z",
             "concessions": True
             })
     ui_controller.ui.get_current_ui().Hide()
@@ -63,7 +61,6 @@ def myBookings():
 
 def ticketSales():
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
-            "timestamp": "2017-11-19T20:00:00.00Z",
             "ticketsales": True
             })
     ui_controller.ui.get_current_ui().Hide()
@@ -73,7 +70,6 @@ def ticketSales():
 
 def concessionSales():
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
-            "timestamp": "2017-11-19T20:00:00.00Z",
             "concessionsales": True
             })
     ui_controller.ui.get_current_ui().Hide()
