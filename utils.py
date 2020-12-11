@@ -72,3 +72,16 @@ def read_bookings_review():
                 dict[movie] = dict[movie] + 1
     
     return dict.items()
+
+def get_list(filename):
+    f = open(filename, "r")
+    lines = f.readlines()  
+
+    return lines  
+
+def save_list(filename, list):
+    f = open(filename, "w")
+    for l in list:
+        f.write(l)
+    f.close()
+    

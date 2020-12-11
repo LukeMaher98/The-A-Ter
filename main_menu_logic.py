@@ -7,7 +7,9 @@ def adminEventLoop(window, event, values):
     if event == 'Logout':
         logout()
     if event == 'Alter Screenings':
-        editMenu()
+        editScreeningsMenu()
+    if event == 'Alter Concessions':
+        editConcessionsMenu()
     if event == 'Bookings Review':
         reviewBookings()
     if event == 'View Ticket Sales':
@@ -31,10 +33,15 @@ def logout():
     logic_controller.logic.set_login_loop()
     logic_controller.logic.set_auth_type(None)
 
-def editMenu():
+def editScreeningsMenu():
     ui_controller.ui.get_current_ui().Hide()
-    ui_controller.ui.open_edit_menu_ui()
-    logic_controller.logic.set_edit_menu_loop()
+    ui_controller.ui.open_edit_screenings_ui()
+    logic_controller.logic.set_edit_screenings_loop()
+
+def editConcessionsMenu():
+    ui_controller.ui.get_current_ui().Hide()
+    ui_controller.ui.open_edit_concessions_ui()
+    logic_controller.logic.set_edit_concessions_loop()
     
 def screenings():
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={

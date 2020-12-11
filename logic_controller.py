@@ -1,6 +1,7 @@
 import entry_logic
 import main_menu_logic
-import edit_menu_logic
+import edit_screenings_logic
+import edit_concessions_logic
 import screenings_logic
 import concessions_logic
 import ticket_sales_logic
@@ -30,7 +31,8 @@ class Logic_Controller:
         self.concession_subtotal = 0
         self._auth_type = None
         self._exit = False
-        self._edit_menu_loop = edit_menu_logic.eventLoop
+        self._edit_screenings_loop = edit_screenings_logic.eventLoop
+        self._edit_concessions_loop = edit_concessions_logic.eventLoop
 
     def set_login_loop(self):  
         self._current_loop = self._login_loop
@@ -71,8 +73,11 @@ class Logic_Controller:
     def set_review_booking_loop(self):
         self._current_loop = self._review_booking_loop
 
-    def set_edit_menu_loop(self):
-        self._current_loop = self._edit_menu_loop
+    def set_edit_screenings_loop(self):
+        self._current_loop = self._edit_screenings_loop
+
+    def set_edit_concessions_loop(self):
+        self._current_loop = self._edit_concessions_loop
 
     def get_current_loop(self):
         return self._current_loop
