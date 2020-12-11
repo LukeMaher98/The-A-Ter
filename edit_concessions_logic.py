@@ -3,18 +3,23 @@ import logic_controller
 import ui_controller
 import utils
 import re
+import listings
 
 concessionSales = utils.get_list("databases/concession_sales_db.txt")
 
 def eventLoop(window, event, values):
-    file = "databases/concessions_db.txt"
+    concFile = "databases/concessions_db.txt"
+    saleFile = "databases/concession_sales_db.txt"
 
     if event == 'Main Menu':
-        window['-CONCESSIONS-'].update(values=utils.get_view_list(file))
+        concessions_info = utils.get_view_list("concessions","databases/concessions_db.txt")
+        concessions_list = listings.list_factory.create_list("concession",concessions_info)
+        concession_screen = concessions_list.generate_list()
+        window['-CONCESSIONS-'].update(values=concession_screen)
         backToMenu()
     if event == 'Save':
-        utils.save_to_file(file, window['-CONCESSIONS-'].get_list_values())
-        utils.save_list(file, concessionSales)
+        utils.save_to_file(concFile, window['-CONCESSIONS-'].get_list_values())
+        utils.save_list(saleFile, concessionSales)
         sg.popup("Saved Concessions")
     if event == 'Add Concession':
         text = sg.popup_get_text("Add concession in format 'ConcessionName,Price'")
@@ -22,8 +27,9 @@ def eventLoop(window, event, values):
             v = window['-CONCESSIONS-'].get_list_values() 
             m = convertToDisplayForm(text)
             v.append(m)
-            concessionSales.append(appendToSales(text))
-            print(concessionSales)
+            s = appendToSales(text)
+            if s != None:
+                concessionSales.append(s)
             window['-CONCESSIONS-'].update(values=v)
         else:
             sg.popup("Concessions must be in format 'ConcessionName,Price'")
@@ -60,7 +66,7 @@ def convertToEditForm(input):
     element = input.split(":")
     output = element[0] + ","
     element[1] = element[1].replace(" ", "")
-    output = output + element[1].removesuffix("e,\n")
+    output = output + element[1].removesuffix("e\n")
 
     return output
 
@@ -68,7 +74,7 @@ def convertToDisplayForm(input):
     element = input.split(",")
     output = element[0] + ":"
     if re.match("[0-9]+", element[1]):
-        output += "  "+ element[1] + "e,\n"
+        output += " "+ element[1] + "e\n"
         return output
 
 def deleteSelected(delete, values):
@@ -81,7 +87,10 @@ def deleteSelected(delete, values):
 
 def appendToSales(input):
     v = input.split(",")
-    
+    for c in concessionSales:
+        n = c.split(",")
+        if n[0] == v[0]:
+            return None
     return(v[0]+",0,\n")
 
 def editSales(new, old):
@@ -96,8 +105,6 @@ def getMatchingIndex(item, list):
     i = item.split(":")
     for l in list:
         t = l.split(",")
-        print(t[0] + " " + i[0])
         if t[0] == i[0]:
             return counter 
-            print(counter)
         counter = counter + 1

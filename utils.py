@@ -50,7 +50,7 @@ def get_view_list(type, filename):
 def save_to_file(filename, content):
     f = open(filename, "w")  
     for c in content:
-        n = c.split(':  ')[0]
+        n = c.split(': ')[0]
         t = c.replace(n+":", "")
         n = n + "," + t.replace("  ", "")
         if n.endswith("\n") != True:
