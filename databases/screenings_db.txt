@@ -1,6 +1,6 @@
-The Bi-Curious Case of Carl Frohburg,1, 11:00, 18:00
-Literally just lennart,2, 13:00, 21:00
-Luke the movie 2,7, 03:00
-O Sam - Where Art Thou?,3, 16:00, 19:45
-Paddy and the Chocolate Factory,4, 9:00, 11:00
-Retard,5, 12:00
+The Bi-Curious Case of Carl Frohburg,1, 11:00, 18:00, 
+Literally just lennart,2, 13:00, 21:00, 
+Luke the movie 2,7, 03:00, 
+O Sam - Where Art Thou?,3, 16:00, 19:45, 
+Paddy and the Chocolate Factory,4, 09:00, 11:00, 
+B Movie,9, 00:37, 

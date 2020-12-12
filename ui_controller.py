@@ -1,7 +1,8 @@
 import PySimpleGUI as sg
 import entry_ui
 import main_menu_ui
-import edit_menu_ui
+import edit_screenings_ui
+import edit_concessions_ui
 import screenings_ui
 import concessions_ui
 import ticket_sales_ui
@@ -17,7 +18,8 @@ class UI_Controller:
         self._signup_ui = None 
         self._main_menu_admin_ui = None 
         self._main_menu_user_ui = None
-        self._edit_menu_ui = None
+        self._edit_screenings_ui = None
+        self._edit_concessions_ui = None
         self._screenings_ui = None
         self._concessions_ui = None
         self._ticket_sales_ui = None
@@ -86,10 +88,15 @@ class UI_Controller:
         self._review_booking_ui = sg.Window(review_bookings_ui.Heading, review_bookings_ui.showLayout(), size=(600,200), finalize=True)
         self._current_ui = self._review_booking_ui
 
-    def open_edit_menu_ui(self):
-        if self._edit_menu_ui == None:
-            self._edit_menu_ui = sg.Window(edit_menu_ui.heading, edit_menu_ui.layout, finalize=True)
-        self._current_ui = self._edit_menu_ui
+    def open_edit_screenings_ui(self):
+        if self._edit_screenings_ui == None:
+            self._edit_screenings_ui = sg.Window(edit_screenings_ui.heading, edit_screenings_ui.layout, finalize=True)
+        self._current_ui = self._edit_screenings_ui
+    
+    def open_edit_concessions_ui(self):
+        if self._edit_concessions_ui == None:
+            self._edit_concessions_ui = sg.Window(edit_concessions_ui.heading, edit_concessions_ui.layout, finalize=True)
+        self._current_ui = self._edit_concessions_ui
 
     def get_current_ui(self):
         return self._current_ui

@@ -50,7 +50,7 @@ def get_view_list(type, filename):
 def save_to_file(filename, content):
     f = open(filename, "w")  
     for c in content:
-        n = c.split(':  ')[0]
+        n = c.split(': ')[0]
         t = c.replace(n+":", "")
         n = n + "," + t.replace("  ", "")
         if n.endswith("\n") != True:
@@ -102,3 +102,16 @@ def read_bookings_review():
                 dict[movie] = dict[movie] + 1
     
     return dict.items()
+
+def get_list(filename):
+    f = open(filename, "r")
+    lines = f.readlines()  
+
+    return lines  
+
+def save_list(filename, list):
+    f = open(filename, "w")
+    for l in list:
+        f.write(l)
+    f.close()
+    
