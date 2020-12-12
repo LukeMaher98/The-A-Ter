@@ -1,15 +1,4 @@
-Screen 11:00 18:00
- -  Screen 1 -  The Bi-Curious Case of Carl Frohburg: ,Screen 11:00 18:00
- -Screen 1 -The Bi-Curious Case of Carl Frohburg: 
-Screen 13:00 21:00
- -  Screen 2 -  Literally just lennart: ,Screen 13:00 21:00
- -Screen 2 -Literally just lennart: 
-Screen 03:00
- -  Screen 7 -  Luke the movie 2: ,Screen 03:00
- -Screen 7 -Luke the movie 2: 
-Screen 16:00 19:45
- -  Screen 3 -  O Sam - Where Art Thou?: ,Screen 16:00 19:45
- -Screen 3 -O Sam - Where Art Thou?: 
-Screen 9:00 11:00
- -  Screen 4 -  Paddy and the Chocolate Factory: ,Screen 9:00 11:00
- -Screen 4 -Paddy and the Chocolate Factory: 
+The Bi-Curious Case of Carl Frohburg,1,11:00,8:00
+Literally just lennart,2,13:00,1:00
+Luke the movie 2,7,03:00
+O Sam - Where Art Thou?,3,16:00,9:45
