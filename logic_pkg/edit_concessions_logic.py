@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import logic_controller
-import ui_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
 from utils import utils
 import re
 from entities import listings

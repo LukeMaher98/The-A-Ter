@@ -1,6 +1,4 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
 from utils import utils
 
 Heading = "TheAter Purchase Ticket"

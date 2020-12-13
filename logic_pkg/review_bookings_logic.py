@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
+
 def reviewBookingLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()

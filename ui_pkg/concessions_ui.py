@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-import logic_controller
+from logic_controller import logic_controller
 from entities import listings
 from utils import utils
 

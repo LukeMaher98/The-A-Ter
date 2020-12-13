@@ -1,5 +1,5 @@
-import logic_controller
-import ui_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
 import requests
 
 
