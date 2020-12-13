@@ -22,3 +22,7 @@ Software Metrics:
     - Follow the guide to send logs to Loggly - https://documentation.solarwinds.com/en/Success_Center/loggly/Content/getting-started/gsg-send_data.htm
     - Users DO NOT need to send logs in order for the program to run correctly.
     - A link to our dashboard (Only Developers have Access) - https://samuelpf98.loggly.com/dashboards/dashboard/65e60a9c-e6fe-49e4-9749-cb0920f1d648/view
+    
+Dev Ops:
+    -   User Flow diagrams for several primary use cases
+    -   Overview of adherence to Agile software devlopment principles
