@@ -3,7 +3,6 @@ import logic_controller
 import ui_controller
 import utils
 import listings
-import edit_screenings_utils as esu
 
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"
@@ -17,14 +16,14 @@ def eventLoop(window, event, values):
         movies = window['-MOVIES-'].get_list_values()
         s = []
         for m in movies:
-            s.append(esu.convertToSaveForm(m)+"\n")
+            s.append(utils.convertToSaveForm(m)+"\n")
         utils.save_list(file, s)
         sg.popup("Saved Screenings")
     if event == 'Add Screening':
         text = sg.popup_get_text("Add screening in format 'MovieTitle,Screen,Time1,...,TimeN")
         if text != None:
             v = window['-MOVIES-'].get_list_values()
-            m = esu.convertToDisplayForm(text)
+            m = utils.convertToDisplayForm(text)
             if m.endswith(":  ") != True:
                 v.append(m)
                 window['-MOVIES-'].update(values=v)
@@ -33,17 +32,17 @@ def eventLoop(window, event, values):
     if event == 'Delete Selected':
         try:
             d = values['-MOVIES-'][0]
-            v = esu.deleteSelected(d, window['-MOVIES-'].get_list_values())
+            v = utils.deleteSelected(d, window['-MOVIES-'].get_list_values())
             window['-MOVIES-'].update(values=v)
         except:
             sg.popup("Select Screening to be deleted first!") 
     if event == '-MOVIES-':
         text = sg.popup_get_text("Edit screening in format 'MovieTitle,Screen,Time1,...,TimeN",
-            default_text=esu.convertToEditForm(values['-MOVIES-'][0]))
+            default_text=utils.convertToEditForm(values['-MOVIES-'][0]))
         if text != None:
             i = window['-MOVIES-'].get_indexes()
             v = window['-MOVIES-'].get_list_values()
-            m = esu.convertToDisplayForm(text)
+            m = utils.convertToDisplayForm(text)
             if m.endswith(":") != True:
                 v[i[0]] = m
                 window['-MOVIES-'].update(values=v)
