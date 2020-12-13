@@ -1,15 +1,15 @@
-import entry_logic
-import main_menu_logic
-import edit_screenings_logic
-import edit_concessions_logic
-import screenings_logic
-import concessions_logic
-import ticket_sales_logic
-import concession_sales_logic
-import book_ticket_logic
-import purchase_ticket_logic
-import redeem_booking_logic
-import review_bookings_logic
+from logic_pkg import entry_logic
+from logic_pkg import main_menu_logic
+from logic_pkg import edit_screenings_logic
+from logic_pkg import edit_concessions_logic
+from logic_pkg import screenings_logic
+from logic_pkg import concessions_logic
+from logic_pkg import ticket_sales_logic
+from logic_pkg import concession_sales_logic
+from logic_pkg import book_ticket_logic
+from logic_pkg import purchase_ticket_logic
+from logic_pkg import redeem_booking_logic
+from logic_pkg import review_bookings_logic
 
 class Logic_Controller:
     def __init__(self): 

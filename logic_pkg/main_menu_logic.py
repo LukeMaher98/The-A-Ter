@@ -1,4 +1,3 @@
-from review_bookings_logic import reviewBookingLoop
 import ui_controller
 import logic_controller
 import requests

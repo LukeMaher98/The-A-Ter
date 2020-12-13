@@ -1,16 +1,16 @@
 import PySimpleGUI as sg
-import entry_ui
-import main_menu_ui
-import edit_screenings_ui
-import edit_concessions_ui
-import screenings_ui
-import concessions_ui
-import ticket_sales_ui
-import concession_sales_ui
-import book_ticket_ui
-import purchase_ticket_ui
-import redeem_booking_ui
-import review_bookings_ui
+from ui_pkg import entry_ui
+from ui_pkg import main_menu_ui
+from ui_pkg import edit_screenings_ui
+from ui_pkg import edit_concessions_ui
+from ui_pkg import screenings_ui
+from ui_pkg import concessions_ui
+from ui_pkg import ticket_sales_ui
+from ui_pkg import concession_sales_ui
+from ui_pkg import book_ticket_ui
+from ui_pkg import purchase_ticket_ui
+from ui_pkg import redeem_booking_ui
+from ui_pkg import review_bookings_ui
 
 class UI_Controller:
     def __init__(self): 
