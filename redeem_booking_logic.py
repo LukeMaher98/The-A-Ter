@@ -39,7 +39,3 @@ def removeBooking(user, title, time):
 
     db = open("databases/bookings_db.txt", "w")
     db.write(bookings)
-
-    ##requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
-    ##        "BookingCancelled": "Success",
-     ##   })
