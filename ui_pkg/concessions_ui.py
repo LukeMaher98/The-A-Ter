@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import logic_controller
-import listings
-import utils
+from entities import listings
+from utils import utils
 
 Heading = "TheAter Concessions"
 

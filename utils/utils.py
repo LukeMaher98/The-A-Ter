@@ -1,5 +1,5 @@
-import listings
-import list_objects
+from entities import listings
+from entities import list_objects
 import re
 
 def get_view_list(type, filename):

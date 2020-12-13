@@ -1,8 +1,8 @@
 import PySimpleGUI as sg
 import logic_controller
 import ui_controller
-import utils
-import listings
+from utils import utils
+from entities import listings
 
 def eventLoop(window, event, values):
     file = "databases/screenings_db.txt"

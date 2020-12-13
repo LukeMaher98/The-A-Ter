@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import ui_controller
 import logic_controller
-import utils
+from utils import utils
 
 def redeemBookingLoop(window, event, values):
     if event == 'Back To Menu':

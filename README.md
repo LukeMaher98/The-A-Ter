@@ -1,6 +1,20 @@
 # The-A-Ter
-Cinema is dead
+Prerequisites:
+    - Python 3 (Possible incompatibilities if -v < 3.9)
+    - PySimpleGui (pip install pysimplegui)
+    - etc
 
-Rip Cinema
+How To Run:
+    - python main.py
 
-OKAY PR FOR REAL THIS TIME
+Walkthrough:
+    - user login vs admin login
+    - see flow/communication diagrams etc
+
+ADDED VALUE 
+
+Unit Tests:
+    - add here
+
+Metrics: 
+    - add here
