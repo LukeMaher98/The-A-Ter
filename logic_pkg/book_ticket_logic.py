@@ -1,6 +1,5 @@
 import PySimpleGUI as sg
-from ui_controller import ui_controller
-from logic_controller import logic_controller
+from controllers import logic_controller, ui_controller
 from utils import utils
 import requests
 

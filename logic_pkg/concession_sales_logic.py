@@ -1,6 +1,5 @@
 import PySimpleGUI as sg
-from ui_controller import ui_controller
-from logic_controller import logic_controller
+from controllers import ui_controller, logic_controller
 
 def concessionSalesEventLoop(window, event, values):
     if event == 'Back To Menu':

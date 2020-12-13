@@ -14,7 +14,11 @@ Walkthrough:
 ADDED VALUE 
 
 Unit Tests:
-    - add here
+    - In the same directory used to run the initial program run the unit tests with the following command:
+        python -m unittest -v unittests/test_utils.py 
+    - The tests should run automatically
+    - Each tests case will print either 'ok' or 'FAIL'
+    - In the case of a failure the actual and expected results will be printed for the user to compare  
 
 Software Metrics:
     - For recording our software metrics we use Loggly

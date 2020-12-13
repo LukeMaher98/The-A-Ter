@@ -1,5 +1,5 @@
 import PySimpleGUI as sg
-from logic_controller import logic_controller
+from controllers import logic_controller
 from utils import utils
 
 Heading = "TheAter My Bookings"
