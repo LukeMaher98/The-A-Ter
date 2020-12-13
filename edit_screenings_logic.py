@@ -17,7 +17,7 @@ def eventLoop(window, event, values):
         movies = window['-MOVIES-'].get_list_values()
         s = []
         for m in movies:
-            s.append(convertToEditForm(m)+"\n")
+            s.append(convertToSaveForm(m)+"\n")
         utils.save_list(file, s)
         sg.popup("Saved Screenings")
     if event == 'Add Screening':
@@ -25,7 +25,7 @@ def eventLoop(window, event, values):
         if text != None:
             v = window['-MOVIES-'].get_list_values()
             m = convertToDisplayForm(text)
-            if m.endswith(":") != True:
+            if m.endswith(":  ") != True:
                 v.append(m)
                 window['-MOVIES-'].update(values=v)
             else:
@@ -60,9 +60,21 @@ def convertToEditForm(input):
     input = input.replace(o+" -  ", "")
     o = o.replace("Screen ", "")
     output = input.split(': ')[0]
-    t = input.replace(output+": ", "")
+    t = input.replace(output+":  ", "")
     output = output + "," + o + ","
     output = output + t.replace(" ", ",")
+    output = output.removesuffix(",")
+
+    return output
+
+def convertToSaveForm(input):
+    o = input.split(' -')[0]
+    input = input.replace(o+" -  ", "")
+    o = o.replace("Screen ", "")
+    output = input.split(': ')[0]
+    t = input.replace(output+": ", "")
+    output = output + "," + o
+    output = output + t.replace(" ", ", ")
 
     return output
 
@@ -73,13 +85,13 @@ def convertToDisplayForm(input):
     t = ""
     for element in elements:
         if count == 0 : 
-            t = element + ": "
+            t = element + ":  "
         elif count == 1:
             if re.match("[0-9][0-9]|[0-9]", element):
                 output = "Screen " + element + " -  " + t
         else:
-            if re.match("(2[0-3]:[0-5][0-9]|1[0-9]:[0-5][0-9])", element):
-                output += " "+ element
+            if re.match("(2[0-3]:[0-5][0-9]|[0-1][0-9]:[0-5][0-9])", element):
+                output += element + " "
         count += 1
 
     return output
