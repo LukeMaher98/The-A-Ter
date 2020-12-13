@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import listings
-import utils
+from entities import listings
+from utils import utils
 
 Heading = "TheAter Concession Sales"
 concession_sales_info = utils.get_view_list("concession sale","databases/concession_sales_db.txt")

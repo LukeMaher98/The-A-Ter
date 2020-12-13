@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
 
 def screeningsEventLoop(window, event, values):
     if event == 'Back To Menu':
@@ -31,11 +31,10 @@ def bookTicket(movie):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_book_ticket_ui(movie)
     logic_controller.logic.set_book_ticket_user_loop()
-    logic_controller.logic.set_auth_type("user")
 
 def purchaseTicket(movie):
     ui_controller.ui.get_current_ui().Hide()
     ui_controller.ui.open_purchase_ticket_ui(movie)
     logic_controller.logic.set_purchase_ticket_user_loop()
-    logic_controller.logic.set_auth_type("user")
+
 

@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
-import utils
+from ui_controller import ui_controller
+from logic_controller import logic_controller
+from utils import utils
 import requests
 
 def bookTicketLoop(window, event, values):

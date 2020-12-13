@@ -1,9 +1,9 @@
 import PySimpleGUI as sg
-import logic_controller
-import ui_controller
-import utils
+from ui_controller import ui_controller
+from logic_controller import logic_controller
+from utils import utils
 import re
-import listings
+from entities import listings
 
 concessionSales = utils.get_list("databases/concession_sales_db.txt")
 

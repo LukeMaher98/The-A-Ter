@@ -1,13 +1,20 @@
 # The-A-Ter
-Cinema is dead
+Prerequisites:
+    - Python 3 (Possible incompatibilities if -v < 3.9)
+    - PySimpleGui (pip install pysimplegui)
+    - etc
 
-Rip Cinema
+How To Run:
+    - python main.py
 
-OKAY PR FOR REAL THIS TIME
+Walkthrough:
+    - user login vs admin login
+    - see flow/communication diagrams etc
 
-Software Metrics Set-Up: 
-- For recording our software metrics we use Loggly
-- Users will need to run the command "pip install requests" 
-- In order to send logs Users will need to follow the instructions in the next guide (https://documentation.solarwinds.com/en/Success_Center/loggly/Content/getting-started/gsg-send_data.htm)
-- Users DO NOT need to send logs in order for the program to run correctly.
-- A link to our dashboard (Only Developers have Access) - https://samuelpf98.loggly.com/dashboards/dashboard/65e60a9c-e6fe-49e4-9749-cb0920f1d648/view
+ADDED VALUE 
+
+Unit Tests:
+    - add here
+
+Metrics:
+    - SAM YOU ADD YOUR STUFF HERE IF THATS OKAY WITH YOU 

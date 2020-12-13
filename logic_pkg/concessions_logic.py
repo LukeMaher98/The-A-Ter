@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
 import requests
 
 def concessionsEventLoop(window, event, values):
@@ -59,13 +59,18 @@ def parseItemPrice(value):
 
 def buyConcession(concession):
     concessionSales = ""
+    found = False
     with open("databases/concession_sales_db.txt", "r") as db:
         for line in db:
             string = line.split(",")
             if concession == string[0]:
                 concessionSales += concession+","+str(int(string[1]) + 1)+",\n"
+                found = True
             else:
                 concessionSales += line
+
+    if not found:
+        concessionSales += concession+",1,\n"
 
     requests.post("https://logs-01.loggly.com/inputs/990e729b-d1a0-4ad1-a774-78d9c11a93c7/tag/http/", json={
             "ConcessionPurchased": "Success",

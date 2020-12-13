@@ -1,5 +1,4 @@
 import abc
-import list_objects
 
 
 class Listing(metaclass=abc.ABCMeta):

@@ -1,12 +1,12 @@
 import PySimpleGUI as sg
-import ui_controller
-import logic_controller
+from ui_controller import ui_controller
+from logic_controller import logic_controller
 
-def concessionSalesEventLoop(window, event, values):
+def ticketSalesEventLoop(window, event, values):
     if event == 'Back To Menu':
         backToMenu()
     if event == '-List-':
-        sg.popup('{} euro'.format(values['-List-'][0]))
+        sg.popup('{} tickets'.format(values['-List-'][0]))
 
 
 def backToMenu():

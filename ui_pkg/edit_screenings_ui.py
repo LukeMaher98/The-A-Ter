@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
-import utils
-import listings
+from utils import utils
+from entities import listings
 
 screenings_info = utils.get_view_list("movies","databases/screenings_db.txt")
 
