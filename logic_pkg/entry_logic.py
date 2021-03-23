@@ -1,6 +1,20 @@
 from controllers import ui_controller, logic_controller
+from functools import wraps
+from utils import utils
 import requests
 
+def encryption_interceptor(func):
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        y = list(args)
+        y[1] = utils.encrypt(y[1])
+        args = tuple(y)
+        result = func(*args, **kwargs)
+
+        return result
+
+    return wrapper
 
 def loginEventLoop(window, event, values):
     window['-USERNAME-'].update("")
@@ -83,7 +97,7 @@ def validateLogin(window, username, password):
     passwords = loginData.readline().split(",")
     authTypes = loginData.readline().split(",")
     if username in usernames:
-        if password == passwords[usernames.index(username)]:
+        if password == utils.decrypt(passwords[usernames.index(username)]):
             if authTypes[usernames.index(username)] == "admin":
                 adminLogin(username)
             else:
@@ -101,6 +115,7 @@ def validateLogin(window, username, password):
             "Reason": "Username Invalid"
         })
 
+@encryption_interceptor
 def save_new_user_data(username, password):
     readData = open("databases/login_db.txt", "r")
     usernames = readData.readline()
